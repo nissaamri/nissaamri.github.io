@@ -899,6 +899,23 @@
       line-height: 1.5;
     }
 
+    /* Filter toggle: only shown on phones */
+    .filter-toggle {
+      display: none;
+      width: 100%;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text-solid);
+      cursor: pointer;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+    }
+    .filter-toggle-icon { transition: transform 0.2s; }
+
     /* Neutral tag for tools without a dedicated colour */
     .pill-tag.tool-neutral { background-color: #EFE9E0; color: #3D342B; }
 
@@ -969,6 +986,18 @@
       .portfolio-heading-area h2 { font-size: 2.4rem; }
       .hero-title { font-size: 2.2rem; }
       .proof-grid, .exp-stats { grid-template-columns: 1fr; }
+      .project-card { min-height: 0; padding: 1.6rem 1.4rem; }
+      .card-desc { margin-bottom: 1.1rem; }
+      .tag-container { margin-bottom: 1.2rem; }
+      .filter-sidebar { padding: 1.1rem 1.3rem; margin-bottom: 1.4rem; }
+      .filter-toggle { display: flex; }
+      .portfolio-layout { gap: 0; }
+      .filter-body { margin-top: 1.2rem; }
+      .filter-sidebar.collapsed .filter-body { display: none; }
+      .filter-sidebar:not(.collapsed) .filter-toggle-icon { transform: rotate(180deg); }
+      .portfolio-heading-area { margin-top: 3.5rem; margin-bottom: 2rem; }
+      .experience-section { margin-top: 3.5rem; }
+      .connect-card { margin-top: 3.5rem; }
       .exp-card { padding: 1.6rem 1.3rem; }
       .experience-section h2 { font-size: 2.1rem; }
       .modal-footer-box { flex-direction: column; align-items: flex-start; }
@@ -1142,7 +1171,12 @@
     <!-- 3. SIDEBAR & PROJECTS -->
     <div class="portfolio-layout">
       
-      <aside class="filter-sidebar">
+      <aside class="filter-sidebar collapsed" id="filter-sidebar">
+        <button class="filter-toggle" id="filter-toggle" aria-expanded="false" aria-controls="filter-body">
+          <span><span class="static-star">✦</span> Filter projects</span>
+          <span class="filter-toggle-icon">▾</span>
+        </button>
+        <div class="filter-body" id="filter-body">
         <p class="filter-helper-text">
           <span class="static-star">✦</span> Tap multiple tags to narrow down projects.
         </p>
@@ -1191,6 +1225,7 @@
         </div>
 
         <button class="btn-clear" id="reset-all">Clear all filters</button>
+        </div>
       </aside>
 
       <!-- PROJECTS GRID -->
@@ -2201,6 +2236,14 @@
     });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    // Filter toggle (phones)
+    const filterSidebar = document.getElementById('filter-sidebar');
+    const filterToggle = document.getElementById('filter-toggle');
+    filterToggle.addEventListener('click', () => {
+      const open = filterSidebar.classList.toggle('collapsed') === false;
+      filterToggle.setAttribute('aria-expanded', String(open));
     });
 
     // Highlight the nav link for the section in view
