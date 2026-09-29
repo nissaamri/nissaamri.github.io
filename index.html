@@ -1,0 +1,2222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khairunnisa Khairulamri · Data & Risk Analytics Portfolio</title>
+  <meta name="description" content="Portfolio of Khairunnisa Khairulamri, UTP IT graduate (Big Data Analytics, Finance minor) and former PETRONAS Risk Management Intern. Data analytics, risk and machine learning projects.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-cream: #FAF8F5;
+      --card-bg: #FFFFFF;
+      --text-solid: #111111;
+      --border-color: #D3C9BD;
+      --badge-bg: #EAE3D9;
+      --active-black: #111111;
+      
+      /* Pastel Tool Palette */
+      --tag-python-bg: #FEF3B4;
+      --tag-python-txt: #4E3B00;
+      --tag-ml-bg: #D4F4CE;
+      --tag-ml-txt: #0F450B;
+      --tag-flutter-bg: #CFEBFD;
+      --tag-flutter-txt: #083857;
+      --tag-firebase-bg: #FDD8B5;
+      --tag-firebase-txt: #5E2206;
+      --tag-sql-bg: #E7D1FC;
+      --tag-sql-txt: #3C0C66;
+      --tag-powerbi-bg: #FEE2E2;
+      --tag-powerbi-txt: #651212;
+      --tag-streamlit-bg: #CCFBF1;
+      --tag-streamlit-txt: #0F4A42;
+      --tag-web-bg: #E0F2FE;
+      --tag-web-txt: #034A75;
+      --tag-js-bg: #FEF08A;
+      --tag-js-txt: #543802;
+      --tag-java-bg: #FBD5D5;
+      --tag-java-txt: #7A1E1E;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-solid);
+      font-weight: 500;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: -15%;
+      left: 25%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(254, 248, 214, 0.7) 0%, rgba(250, 248, 245, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .shining-name {
+      display: inline-block;
+      font-weight: 800;
+      background: linear-gradient(110deg, #111111 15%, #C28B10 45%, #FFEAA0 50%, #C28B10 55%, #111111 85%);
+      background-size: 250% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shineSweep 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      filter: drop-shadow(0 0 10px rgba(194, 139, 16, 0.35));
+    }
+
+    @keyframes shineSweep {
+      0% { background-position: 150% 0; }
+      100% { background-position: -150% 0; }
+    }
+
+    .static-star {
+      display: inline-block;
+      font-size: 0.95rem;
+      color: #9C7A28;
+      line-height: 1;
+    }
+
+    .focus-card, .project-card, .timeline-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .focus-card::after, .project-card::after, .timeline-card::after {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -130%;
+      width: 70%;
+      height: 220%;
+      background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 50%, rgba(255,255,255,0) 100%);
+      transform: rotate(25deg);
+      pointer-events: none;
+    }
+
+    .focus-card:hover::after, .project-card:hover::after, .timeline-card:hover::after {
+      animation: cardLightSweep 1s ease forwards;
+    }
+
+    @keyframes cardLightSweep {
+      0% { left: -130%; }
+      100% { left: 230%; }
+    }
+
+    nav {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2.2rem 3rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-solid);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-menu { display: flex; align-items: center; gap: 2.5rem; }
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--text-solid);
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding-bottom: 4px;
+      transition: border-bottom 0.2s;
+    }
+    .nav-menu a.active {
+      border-bottom: 3px solid var(--text-solid);
+    }
+
+    .nav-github-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-color);
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--text-solid);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-github-link:hover {
+      background: #EAE3D9;
+      border-bottom: 1.5px solid var(--border-color);
+    }
+
+    .wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 3rem 5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-me-section {
+      text-align: center;
+      padding: 2.5rem 1rem 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .intro-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--badge-bg);
+      border: 1.5px solid var(--border-color);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--text-solid);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      line-height: 1.2;
+      color: var(--text-solid);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-title em {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-weight: 700;
+      color: #5C3D1E;
+    }
+
+    .about-bio {
+      font-size: 1.05rem;
+      color: var(--text-solid);
+      font-weight: 500;
+      line-height: 1.6;
+      max-width: 640px;
+      margin: 0 auto 2.2rem;
+    }
+
+    .focus-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+      text-align: left;
+    }
+
+    .focus-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.4rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .focus-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .focus-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.8rem;
+    }
+
+    .focus-icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+    }
+
+    .focus-icon-box.yellow { background: var(--tag-python-bg); }
+    .focus-icon-box.green { background: var(--tag-ml-bg); }
+    .focus-icon-box.blue { background: var(--tag-flutter-bg); }
+
+    .focus-title { font-size: 1rem; font-weight: 800; color: var(--text-solid); }
+    .focus-desc { font-size: 0.88rem; color: var(--text-solid); font-weight: 500; line-height: 1.5; margin-bottom: 1rem; }
+
+    .focus-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .portfolio-heading-area {
+      text-align: center;
+      margin-top: 5rem;
+      margin-bottom: 3rem;
+    }
+
+    .top-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--badge-bg);
+      border: 1.5px solid var(--border-color);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--text-solid);
+      margin-bottom: 1.4rem;
+    }
+
+    .portfolio-heading-area h2 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      line-height: 1.1;
+      color: var(--text-solid);
+    }
+
+    .portfolio-heading-area h2 em {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-weight: 700;
+      color: #5C3D1E;
+    }
+
+    .portfolio-heading-area .subtitle {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text-solid);
+      margin-top: 0.7rem;
+    }
+
+    .counter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 1.4rem;
+      background: #EAE3D9;
+      border: 1.5px solid var(--border-color);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--text-solid);
+    }
+
+    .love-icon {
+      color: #111111;
+      font-size: 0.85rem;
+      line-height: 1;
+      display: inline-block;
+    }
+
+    .portfolio-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 2.2rem;
+      align-items: start;
+    }
+
+    .filter-sidebar {
+      position: sticky;
+      top: 2rem;
+      background: var(--card-bg);
+      border: 1.5px solid var(--border-color);
+      border-radius: 18px;
+      padding: 1.8rem 1.6rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+    }
+
+    .filter-helper-text {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-solid);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      line-height: 1.4;
+    }
+
+    .filter-row { margin-bottom: 1.5rem; }
+    .filter-row-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--text-solid);
+      margin-bottom: 0.7rem;
+    }
+
+    .pill-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .btn-pill {
+      border: 1.5px solid var(--border-color);
+      background: #FFFFFF;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-solid);
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .btn-pill:hover { background: #EFE9E0; }
+    .btn-pill.active {
+      background: var(--active-black);
+      border-color: var(--active-black);
+      color: #FFFFFF;
+    }
+
+    .btn-clear {
+      background: none;
+      border: none;
+      color: var(--text-solid);
+      font-size: 0.82rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
+      margin-top: 0.4rem;
+      display: block;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.6rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--border-color);
+      border-radius: 18px;
+      padding: 2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 360px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .card-category {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--text-solid);
+    }
+
+    .card-number { font-size: 0.85rem; font-weight: 800; color: var(--text-solid); }
+    .card-title { font-size: 1.35rem; font-weight: 800; line-height: 1.3; margin-bottom: 0.7rem; color: var(--text-solid); }
+    .card-desc { font-size: 0.9rem; font-weight: 500; color: #4A4036; line-height: 1.5; margin-bottom: 1.4rem; }
+
+    .tag-container { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.6rem; }
+
+    .pill-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .pill-tag.tool-python    { background-color: var(--tag-python-bg); color: var(--tag-python-txt); }
+    .pill-tag.tool-ml        { background-color: var(--tag-ml-bg); color: var(--tag-ml-txt); }
+    .pill-tag.tool-flutter   { background-color: var(--tag-flutter-bg); color: var(--tag-flutter-txt); }
+    .pill-tag.tool-firebase  { background-color: var(--tag-firebase-bg); color: var(--tag-firebase-txt); }
+    .pill-tag.tool-sql       { background-color: var(--tag-sql-bg); color: var(--tag-sql-txt); }
+    .pill-tag.tool-powerbi   { background-color: var(--tag-powerbi-bg); color: var(--tag-powerbi-txt); }
+    .pill-tag.tool-streamlit { background-color: var(--tag-streamlit-bg); color: var(--tag-streamlit-txt); }
+    .pill-tag.tool-web       { background-color: var(--tag-web-bg); color: var(--tag-web-txt); }
+    .pill-tag.tool-js        { background-color: var(--tag-js-bg); color: var(--tag-js-txt); }
+    .pill-tag.tool-java      { background-color: var(--tag-java-bg); color: var(--tag-java-txt); }
+
+    .card-bottom-link { padding-top: 1.2rem; border-top: 1.5px solid var(--border-color); }
+    
+    .view-details-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-solid);
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: gap 0.2s;
+    }
+    .view-details-btn:hover { gap: 10px; }
+
+    /* Modal Styling */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(17, 17, 17, 0.6);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-container {
+      background: var(--card-bg);
+      border: 1.5px solid var(--border-color);
+      border-radius: 22px;
+      max-width: 760px;
+      width: 100%;
+      max-height: 92vh;
+      overflow-y: auto;
+      padding: 2.4rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+      transform: translateY(20px) scale(0.98);
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .modal-overlay.open .modal-container {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: #EAE3D9;
+      border: 1.5px solid var(--border-color);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text-solid);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .modal-close-btn:hover {
+      background: var(--active-black);
+      color: #FFFFFF;
+      transform: rotate(90deg);
+    }
+
+    .modal-header-meta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .modal-category-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      background: #EAE3D9;
+      padding: 4px 10px;
+      border-radius: 6px;
+      color: var(--text-solid);
+    }
+
+    .modal-title {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .modal-video-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 1.6rem;
+      background: #000;
+    }
+    .modal-video-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    .modal-summary-box {
+      background: #FAF8F5;
+      border: 1.5px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .modal-summary-box p {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-solid);
+      line-height: 1.6;
+    }
+
+    .modal-section-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin: 1.8rem 0 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .modal-section-title span {
+      color: #7B6858;
+    }
+
+    .process-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .timeline-card {
+      background: #FAF8F5;
+      border: 1.5px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.1rem 1.3rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .step-badge {
+      background: var(--active-black);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-content h5 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+      color: var(--text-solid);
+    }
+
+    .step-content p {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: #4A4036;
+      line-height: 1.5;
+      margin-bottom: 0.4rem;
+    }
+
+    .step-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .proof-item {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+    }
+
+    .proof-item .proof-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7B6858;
+      margin-bottom: 0.3rem;
+    }
+
+    .proof-item .proof-value {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-solid);
+      margin-bottom: 0.2rem;
+    }
+
+    .proof-item .proof-desc {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #4A4036;
+      line-height: 1.4;
+    }
+
+    .modal-footer-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 1.4rem;
+      border-top: 1.5px solid var(--border-color);
+      flex-wrap: wrap;
+    }
+
+    .modal-footer-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .modal-footer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .modal-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--active-black);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .modal-action-btn:hover {
+      background: #333333;
+    }
+
+    .modal-action-btn.secondary {
+      background: #FFFFFF;
+      color: var(--text-solid);
+      border: 1.5px solid var(--border-color);
+    }
+    .modal-action-btn.secondary:hover {
+      background: #EAE3D9;
+    }
+
+    .connect-card {
+      background: #EAE3D9;
+      border: 1.5px solid var(--border-color);
+      border-radius: 22px;
+      padding: 3.5rem 3rem;
+      margin-top: 5rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .connect-title-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-solid);
+      margin-bottom: 0.5rem;
+    }
+
+    .connect-title {
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      line-height: 1.15;
+      color: var(--text-solid);
+    }
+
+    .connect-right { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .resume-download-box {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.2rem 1.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+    }
+
+    .resume-text h4 { font-size: 1rem; font-weight: 800; color: var(--text-solid); }
+    .resume-text p { font-size: 0.82rem; font-weight: 600; color: #7B6858; margin-top: 2px; }
+
+    .btn-download {
+      background: var(--active-black);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 800;
+      padding: 9px 16px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .socials-area-title { font-size: 0.82rem; font-weight: 800; color: var(--text-solid); margin-bottom: 0.6rem; }
+    .social-links { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+    .social-btn {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-color);
+      border-radius: 9999px;
+      padding: 7px 15px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--text-solid);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Experience */
+    .experience-section {
+      max-width: 900px;
+      margin: 5rem auto 0;
+    }
+    .experience-section .section-head { text-align: center; margin-bottom: 2rem; }
+    .experience-section h2 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+    }
+    .experience-section h2 em {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-weight: 700;
+      color: #5C3D1E;
+    }
+    .exp-card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--border-color);
+      border-radius: 18px;
+      padding: 2rem 2.2rem;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+    }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.4rem 1rem;
+      margin-bottom: 0.3rem;
+    }
+    .exp-role { font-size: 1.35rem; font-weight: 800; }
+    .exp-dates { font-size: 0.88rem; font-weight: 700; color: #7B6858; }
+    .exp-org { font-size: 0.95rem; font-weight: 700; color: #4A4036; margin-bottom: 1.4rem; }
+    .exp-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    .exp-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .exp-list li {
+      position: relative;
+      padding-left: 1.4rem;
+      font-size: 0.93rem;
+      line-height: 1.55;
+      color: #2E2821;
+    }
+    .exp-list li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      top: 0.05rem;
+      font-size: 0.8rem;
+      color: #9C7A28;
+    }
+    .connect-note {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #4A4036;
+      margin-top: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Neutral tag for tools without a dedicated colour */
+    .pill-tag.tool-neutral { background-color: #EFE9E0; color: #3D342B; }
+
+    /* Section anchors clear the top edge when jumped to */
+    section[id] { scroll-margin-top: 1.5rem; }
+
+    .nav-menu a:not(.nav-github-link) { border-bottom: 3px solid transparent; }
+
+    /* Keyboard focus */
+    a:focus-visible, button:focus-visible {
+      outline: 2.5px solid #C28B10;
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    /* Optional project thumbnails (shown only when a thumb is set in projectsData) */
+    .card-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-color);
+      margin-bottom: 1.2rem;
+      display: block;
+      background: #EFE9E0;
+    }
+
+    /* Optional screenshot gallery inside the modal */
+    .modal-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.8rem;
+      margin-bottom: 1.6rem;
+    }
+    .modal-gallery a { display: block; }
+    .modal-gallery img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-color);
+      display: block;
+    }
+
+    .filter-empty-note {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #7B6858;
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 2rem 0;
+      display: none;
+    }
+
+    @media (max-width: 1080px) {
+      .portfolio-layout { grid-template-columns: 1fr; }
+      .filter-sidebar { position: static; margin-bottom: 2rem; }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+      .nav-menu { gap: 1.1rem; flex-wrap: wrap; }
+      .nav-menu a { font-size: 0.88rem; }
+      .modal-container { padding: 1.6rem 1.3rem; }
+      .modal-title { font-size: 1.55rem; padding-right: 2.5rem; }
+      .wrapper { padding: 0 1.5rem 3rem; }
+      .focus-cards-grid, .projects-grid { grid-template-columns: 1fr; }
+      .connect-card { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+      .portfolio-heading-area h2 { font-size: 2.4rem; }
+      .hero-title { font-size: 2.2rem; }
+      .proof-grid, .exp-stats { grid-template-columns: 1fr; }
+      .exp-card { padding: 1.6rem 1.3rem; }
+      .experience-section h2 { font-size: 2.1rem; }
+      .modal-footer-box { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 420px) {
+      .nav-menu { gap: 0.9rem; }
+      .nav-github-link { padding: 5px 11px; }
+      .resume-download-box { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+      .shining-name {
+        background: none;
+        -webkit-text-fill-color: currentColor;
+        color: #111111;
+        filter: none;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-logo">K.</a>
+    <div class="nav-menu">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="https://github.com/nissaamri" target="_blank" rel="noopener noreferrer" class="nav-github-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+        GitHub ↗
+      </a>
+    </div>
+  </nav>
+
+  <div class="wrapper">
+    
+    <!-- 1. ABOUT ME -->
+    <section class="about-me-section" id="about">
+      <div class="intro-badge">
+        <span class="static-star">✦</span>
+        <span>Portfolio</span>
+      </div>
+
+      <h1 class="hero-title">
+        I'm <span class="shining-name">Khairunnisa</span> — a <em>data &amp; risk analyst.</em>
+      </h1>
+
+      <p class="about-bio">
+        UTP IT graduate (Big Data Analytics, Finance minor) and former Risk Management Intern at PETRONAS. I build dashboards, risk models, and ML tools with Python, SQL, and Power BI.
+      </p>
+
+      <div class="focus-cards-grid">
+        <div class="focus-card">
+          <div class="focus-card-header">
+            <div class="focus-icon-box yellow">📊</div>
+            <h3 class="focus-title">Data Analytics</h3>
+          </div>
+          <p class="focus-desc">Turning complex raw data into clear business metrics.</p>
+          <div class="focus-tags">
+            <span class="pill-tag tool-sql">SQL</span>
+            <span class="pill-tag tool-powerbi">Power BI</span>
+            <span class="pill-tag tool-python">Python</span>
+          </div>
+        </div>
+
+        <div class="focus-card">
+          <div class="focus-card-header">
+            <div class="focus-icon-box green">🤖</div>
+            <h3 class="focus-title">Applied AI</h3>
+          </div>
+          <p class="focus-desc">Building predictive models and risk warning tools.</p>
+          <div class="focus-tags">
+            <span class="pill-tag tool-ml">Machine Learning</span>
+            <span class="pill-tag tool-streamlit">Streamlit</span>
+          </div>
+        </div>
+
+        <div class="focus-card">
+          <div class="focus-card-header">
+            <div class="focus-icon-box blue">📱</div>
+            <h3 class="focus-title">Software & Apps</h3>
+          </div>
+          <p class="focus-desc">Full-stack web apps and mobile apps backed by real databases.</p>
+          <div class="focus-tags">
+            <span class="pill-tag tool-js">Node.js</span>
+            <span class="pill-tag tool-sql">SQL</span>
+            <span class="pill-tag tool-flutter">Flutter</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="experience-section" id="experience">
+      <div class="section-head">
+        <div class="top-badge">
+          <span class="static-star">✦</span>
+          <span>Experience</span>
+        </div>
+        <h2>Where I've <em>worked.</em></h2>
+      </div>
+
+      <article class="exp-card">
+        <div class="exp-header">
+          <h3 class="exp-role">Risk Management Intern</h3>
+          <span class="exp-dates">May 2025 – Dec 2025</span>
+        </div>
+        <p class="exp-org">PETRONAS · Kuala Lumpur</p>
+
+        <div class="exp-stats">
+          <div class="proof-item">
+            <div class="proof-label">Duration</div>
+            <div class="proof-value">7 months</div>
+            <div class="proof-desc">In the Risk group.</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-label">Assurance tracked</div>
+            <div class="proof-value">3 lines</div>
+            <div class="proof-desc">First, second, and third line assurance, in Power BI.</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-label">Tickets analysed</div>
+            <div class="proof-value">2,000+</div>
+            <div class="proof-desc">From 2024–2025, across 3 risk and governance systems.</div>
+          </div>
+        </div>
+
+        <ul class="exp-list">
+          <li>Built and handed over Power BI dashboards for Downstream, including one tracking first, second, and third line assurance.</li>
+          <li>Analysed 2,000+ tickets (2024–2025) to find the top user issues in myAssurance, myRisk, and myGovernance, and QA-tested these systems.</li>
+          <li>Created internal communications, including posters for system enhancements and the Risk department's new org chart, verifying details with staff across the department.</li>
+          <li>Helped run 2 Risk group townhalls, using lessons from the first to guide the new team through the second.</li>
+          <li>Wrote reports and handover documents to keep work running during a department restructuring.</li>
+        </ul>
+
+        <div class="focus-tags">
+          <span class="pill-tag tool-powerbi">Power BI</span>
+          <span class="pill-tag tool-neutral">Three Lines Model</span>
+          <span class="pill-tag tool-neutral">QA Testing</span>
+          <span class="pill-tag tool-neutral">Reporting &amp; Documentation</span>
+          <span class="pill-tag tool-neutral">Internal Communications</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- 2. THINGS I'VE BUILT TITLE -->
+    <section class="portfolio-heading-area" id="projects">
+      <div class="top-badge">
+        <span class="static-star">✦</span>
+        <span>Khairunnisa' · Selected projects</span>
+      </div>
+      <h2>Things I've<br><em>built.</em></h2>
+      <p class="subtitle">Data, risk, finance, and software projects.</p>
+      
+      <div class="counter-pill">
+        <span class="love-icon">♥</span> <span id="project-count">1 Project</span>
+      </div>
+    </section>
+
+    <!-- 3. SIDEBAR & PROJECTS -->
+    <div class="portfolio-layout">
+      
+      <aside class="filter-sidebar">
+        <p class="filter-helper-text">
+          <span class="static-star">✦</span> Tap multiple tags to narrow down projects.
+        </p>
+
+        <div class="filter-row">
+          <div class="filter-row-label">Category</div>
+          <div class="pill-group" id="category-group">
+            <button class="btn-pill active" data-filter="all">All Categories</button>
+            <button class="btn-pill" data-filter="data">Data Analytics</button>
+            <button class="btn-pill" data-filter="software">Software Dev</button>
+            <button class="btn-pill" data-filter="finance">Finance & Acct</button>
+            <button class="btn-pill" data-filter="ai">AI & ML</button>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <div class="filter-row-label">Tools & Technologies</div>
+          <div class="pill-group" id="tools-group">
+            <button class="btn-pill active" data-tool="all">All Tools</button>
+            <button class="btn-pill" data-tool="HTML/CSS">HTML/CSS</button>
+            <button class="btn-pill" data-tool="JavaScript">JavaScript</button>
+            <button class="btn-pill" data-tool="Node.js">Node.js</button>
+            <button class="btn-pill" data-tool="SQL">SQL</button>
+            <button class="btn-pill" data-tool="Python">Python</button>
+            <button class="btn-pill" data-tool="Power BI">Power BI</button>
+            <button class="btn-pill" data-tool="Machine Learning">Machine Learning</button>
+            <button class="btn-pill" data-tool="Flutter">Flutter</button>
+            <button class="btn-pill" data-tool="Firebase">Firebase</button>
+            <button class="btn-pill" data-tool="Streamlit">Streamlit</button>
+            <button class="btn-pill" data-tool="Java">Java</button>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <div class="filter-row-label">Demonstrated Skills</div>
+          <div class="pill-group" id="skills-group">
+            <button class="btn-pill active" data-skill="all">All Skills</button>
+            <button class="btn-pill" data-skill="Problem Solving">Problem Solving</button>
+            <button class="btn-pill" data-skill="UI/UX Design">UI/UX Design</button>
+            <button class="btn-pill" data-skill="Data Analysis">Data Analysis</button>
+            <button class="btn-pill" data-skill="Database Design">Database Design</button>
+            <button class="btn-pill" data-skill="Teamwork">Teamwork</button>
+            <button class="btn-pill" data-skill="Leadership">Leadership</button>
+            <button class="btn-pill" data-skill="Communication">Communication</button>
+          </div>
+        </div>
+
+        <button class="btn-clear" id="reset-all">Clear all filters</button>
+      </aside>
+
+      <!-- PROJECTS GRID -->
+      <main class="projects-grid" id="projects-container">
+
+        <!-- Customer Intelligence Platform -->
+        <div class="project-card" data-id="customer-intelligence-platform" data-category="data,ai" data-tools="Python,Machine Learning,Power BI" data-skills="Data Analysis,Problem Solving">
+          <div>
+            <div class="card-top">
+              <span class="card-category">Data & ML Pipeline</span>
+            </div>
+            <h3 class="card-title">Customer Intelligence Platform</h3>
+            <p class="card-desc">Uses synthetic retail data to segment 10,000 customers and flag RM7.44M in sales at risk.</p>
+          </div>
+          <div>
+            <div class="tag-container">
+              <span class="pill-tag tool-python">Python</span>
+              <span class="pill-tag tool-ml">Machine Learning</span>
+              <span class="pill-tag tool-powerbi">Power BI</span>
+            </div>
+            <div class="card-bottom-link">
+              <button class="view-details-btn" onclick="openProjectModal('customer-intelligence-platform')">
+                View project details →
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Enterprise Risk Monitoring -->
+        <div class="project-card" data-id="enterprise-risk-monitoring" data-category="data,finance" data-tools="Python,SQL,Power BI,HTML/CSS" data-skills="Data Analysis,Problem Solving">
+          <div>
+            <div class="card-top">
+              <span class="card-category">Risk Analytics Dashboard</span>
+            </div>
+            <h3 class="card-title">Enterprise Risk Monitoring</h3>
+            <p class="card-desc">Scores 25 real risks for a public power company, using 5 years of its reports.</p>
+          </div>
+          <div>
+            <div class="tag-container">
+              <span class="pill-tag tool-python">Python</span>
+              <span class="pill-tag tool-sql">SQL</span>
+              <span class="pill-tag tool-powerbi">Power BI</span>
+            </div>
+            <div class="card-bottom-link">
+              <button class="view-details-btn" onclick="openProjectModal('enterprise-risk-monitoring')">
+                View project details →
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Financial Distress Early Warning -->
+        <div class="project-card" data-id="financial-distress-early-warning" data-category="finance,ai,data" data-tools="Python,Machine Learning,Streamlit" data-skills="Data Analysis,Problem Solving">
+          <div>
+            <div class="card-top">
+              <span class="card-category">ML Risk Model</span>
+            </div>
+            <h3 class="card-title">Financial Distress Early-Warning System</h3>
+            <p class="card-desc">Predicts which companies are heading for financial trouble next year, and why.</p>
+          </div>
+          <div>
+            <div class="tag-container">
+              <span class="pill-tag tool-python">Python</span>
+              <span class="pill-tag tool-ml">Machine Learning</span>
+              <span class="pill-tag tool-streamlit">Streamlit</span>
+            </div>
+            <div class="card-bottom-link">
+              <button class="view-details-btn" onclick="openProjectModal('financial-distress-early-warning')">
+                View project details →
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Revenue Leakage Detection -->
+        <div class="project-card" data-id="revenue-leakage-detection" data-category="data,finance" data-tools="Python,Machine Learning" data-skills="Data Analysis,Problem Solving">
+          <div>
+            <div class="card-top">
+              <span class="card-category">Data & ML Analysis</span>
+            </div>
+            <h3 class="card-title">Revenue Leakage & Profit Optimization</h3>
+            <p class="card-desc">Finds where a store loses money on discounts, and suggests a fix.</p>
+          </div>
+          <div>
+            <div class="tag-container">
+              <span class="pill-tag tool-python">Python</span>
+              <span class="pill-tag tool-ml">Machine Learning</span>
+            </div>
+            <div class="card-bottom-link">
+              <button class="view-details-btn" onclick="openProjectModal('revenue-leakage-detection')">
+                View project details →
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- EcoUTP -->
+        <div class="project-card" data-id="ecoutp" data-category="software,ai" data-tools="Flutter,Firebase,Python,Machine Learning" data-skills="Problem Solving,UI/UX Design,Data Analysis">
+          <div>
+            <div class="card-top">
+              <span class="card-category">Final Year Project — Mobile App</span>
+            </div>
+            <h3 class="card-title">EcoUTP</h3>
+            <p class="card-desc">A donation app that uses AI to estimate the CO₂ each donation saves.</p>
+          </div>
+          <div>
+            <div class="tag-container">
+              <span class="pill-tag tool-flutter">Flutter</span>
+              <span class="pill-tag tool-firebase">Firebase</span>
+              <span class="pill-tag tool-ml">Machine Learning</span>
+            </div>
+            <div class="card-bottom-link">
+              <button class="view-details-btn" onclick="openProjectModal('ecoutp')">
+                View project details →
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Alpha Signals -->
+        <div class="project-card" data-id="alpha-signals" data-category="finance,ai" data-tools="Python,Machine Learning" data-skills="Data Analysis,Problem Solving">
+          <div>
+            <div class="card-top">
+              <span class="card-category">Quant Forecasting Pipeline</span>
+            </div>
+            <h3 class="card-title">Alpha Signals — Multi-Market Forecasting</h3>
+            <p class="card-desc">Tests if stock price patterns in 3 markets can predict returns. Honest answer: not reliably.</p>
+          </div>
+          <div>
+            <div class="tag-container">
+              <span class="pill-tag tool-python">Python</span>
+              <span class="pill-tag tool-ml">Machine Learning</span>
+            </div>
+            <div class="card-bottom-link">
+              <button class="view-details-btn" onclick="openProjectModal('alpha-signals')">
+                View project details →
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Walmart Dashboard -->
+        <div class="project-card" data-id="walmart-dashboard" data-category="data" data-tools="Power BI" data-skills="Data Analysis,Problem Solving">
+          <div>
+            <div class="card-top">
+              <span class="card-category">Data Analytics Dashboard</span>
+            </div>
+            <h3 class="card-title">Walmart Dashboard</h3>
+            <p class="card-desc">5-page dashboard on $6.74B of Walmart sales: holidays, weather, and the economy.</p>
+          </div>
+          <div>
+            <div class="tag-container">
+              <span class="pill-tag tool-powerbi">Power BI</span>
+            </div>
+            <div class="card-bottom-link">
+              <button class="view-details-btn" onclick="openProjectModal('walmart-dashboard')">
+                View project details →
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Sephora Dashboard -->
+        <div class="project-card" data-id="sephora-dashboard" data-category="data" data-tools="Power BI" data-skills="Data Analysis,Problem Solving">
+          <div>
+            <div class="card-top">
+              <span class="card-category">Data Analytics Dashboard</span>
+            </div>
+            <h3 class="card-title">Sephora Dashboard</h3>
+            <p class="card-desc">3-page dashboard on 9,159 Sephora products: prices, ratings, and best sellers.</p>
+          </div>
+          <div>
+            <div class="tag-container">
+              <span class="pill-tag tool-powerbi">Power BI</span>
+            </div>
+            <div class="card-bottom-link">
+              <button class="view-details-btn" onclick="openProjectModal('sephora-dashboard')">
+                View project details →
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- KIBO Atelier -->
+        <div class="project-card" data-id="kibo-atelier" data-category="software" data-tools="HTML/CSS,JavaScript,Node.js,SQL" data-skills="Problem Solving,UI/UX Design,Database Design">
+          <div>
+            <div class="card-top">
+              <span class="card-category">Full-Stack Web App</span>
+            </div>
+            <h3 class="card-title">KIBO Atelier — Custom Keyboard Shop</h3>
+            <p class="card-desc">Keyboard shop with accounts, checkout, live order tracking, and an admin panel.</p>
+          </div>
+          <div>
+            <div class="tag-container">
+              <span class="pill-tag tool-web">HTML/CSS</span>
+              <span class="pill-tag tool-js">JavaScript</span>
+              <span class="pill-tag tool-sql">SQL</span>
+            </div>
+            <div class="card-bottom-link">
+              <button class="view-details-btn" onclick="openProjectModal('kibo-atelier')">
+                View project details →
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Aura Glass -->
+        <div class="project-card" data-id="aura-glass" data-category="software" data-tools="HTML/CSS,JavaScript,Node.js,SQL" data-skills="Problem Solving,UI/UX Design,Database Design">
+          <div>
+            <div class="card-top">
+              <span class="card-category">Full-Stack Web App</span>
+            </div>
+            <h3 class="card-title">Aura Glass — Screen Protector Shop</h3>
+            <p class="card-desc">Screen protector shop with a sales analytics dashboard for the owner.</p>
+          </div>
+          <div>
+            <div class="tag-container">
+              <span class="pill-tag tool-web">HTML/CSS</span>
+              <span class="pill-tag tool-js">JavaScript</span>
+              <span class="pill-tag tool-sql">SQL</span>
+            </div>
+            <div class="card-bottom-link">
+              <button class="view-details-btn" onclick="openProjectModal('aura-glass')">
+                View project details →
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Parking Lot System -->
+        <div class="project-card" data-id="parking-lot-system" data-category="software" data-tools="Java" data-skills="Problem Solving">
+          <div>
+            <div class="card-top">
+              <span class="card-category">OOP Console App</span>
+            </div>
+            <h3 class="card-title">Central City Parking System</h3>
+            <p class="card-desc">Java program that checks vehicles in and out and works out the fee.</p>
+          </div>
+          <div>
+            <div class="tag-container">
+              <span class="pill-tag tool-java">Java</span>
+            </div>
+            <div class="card-bottom-link">
+              <button class="view-details-btn" onclick="openProjectModal('parking-lot-system')">
+                View project details →
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <p class="filter-empty-note" id="filter-empty-note">No projects match all of these filters. Try removing one, or <button class="btn-clear" style="display:inline" onclick="document.getElementById('reset-all').click()">clear all filters</button>.</p>
+
+      </main>
+    </div>
+
+    <!-- 4. CONTACT CARD -->
+    <section class="connect-card" id="contact">
+      <div>
+        <p class="connect-title-label">Let's Connect</p>
+        <h2 class="connect-title">Have an opportunity<br>in mind?</h2>
+        <p class="connect-note">Based in Johor, Malaysia. Open to relocation, including Singapore.</p>
+      </div>
+
+      <div class="connect-right">
+        <div class="resume-download-box">
+          <div class="resume-text">
+            <h4>My Resume</h4>
+            <p>PDF format</p>
+          </div>
+          <a href="resume.pdf" download="Khairunnisa-Binti-Khairulamri-Resume.pdf" class="btn-download">
+            Download 
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+          </a>
+        </div>
+
+        <div>
+          <p class="socials-area-title">Or find me here</p>
+          <div class="social-links">
+            <a href="https://github.com/nissaamri" target="_blank" rel="noopener noreferrer" class="social-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              GitHub ↗
+            </a>
+            <a href="https://www.linkedin.com/in/khairunnisa-khairulamri" target="_blank" rel="noopener noreferrer" class="social-btn">LinkedIn ↗</a>
+            <a href="https://wa.me/60122462685" target="_blank" rel="noopener noreferrer" class="social-btn">WhatsApp ↗</a>
+            <a href="mailto:khairunnisa.amri8@gmail.com" class="social-btn">Email ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- PROJECT DETAILS MODAL -->
+  <div class="modal-overlay" id="project-modal" aria-hidden="true">
+    <div class="modal-container" id="modal-container" role="dialog" aria-modal="true" aria-label="Project details">
+      <button class="modal-close-btn" id="close-modal-btn" aria-label="Close modal">✕</button>
+      <div id="modal-dynamic-content">
+        <!-- Content injects dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Project Repository Data
+    const projectsData = {
+      'kibo-atelier': {
+        categoryBadge: 'Full-Stack Web App',
+        title: 'KIBO Atelier — Custom Keyboard Shop',
+        objective: 'Turn a static demo into a real, deployed keyboard shop, focused on the order side: safe checkout, live tracking, and an admin panel.',
+        steps: [
+          {
+            badge: 'Step 1',
+            title: 'Backend & Database',
+            desc: 'Designed a Node.js/Express API backed by a relational SQLite database, so products, carts, and orders are all real and persisted.',
+            tools: ['JavaScript', 'SQL']
+          },
+          {
+            badge: 'Step 2',
+            title: 'Real Authentication',
+            desc: 'Added bcrypt-hashed passwords and JWT sessions in an httpOnly cookie, with route-level authorization separating customer and admin access.',
+            tools: ['JavaScript']
+          },
+          {
+            badge: 'Step 3',
+            title: 'Storefront, Checkout & Tracking',
+            desc: 'Built the cart to be server-side and tied to the account, with an atomic checkout, a "Your Orders" history view, and a live package-tracking timeline.',
+            tools: ['JavaScript', 'HTML/CSS']
+          },
+          {
+            badge: 'Step 4',
+            title: 'Admin Dashboard',
+            desc: 'Built a role-gated dashboard for order status management, a customer list, product image upload, and search/filter/pagination.',
+            tools: ['JavaScript', 'SQL']
+          }
+        ],
+        metrics: [
+          { label: 'Database Design', value: '6 tables', desc: 'Relational SQLite schema covering users, products, carts, orders, and tracking.' },
+          { label: 'API Coverage', value: '27 endpoints', desc: 'REST API spanning auth, catalog, cart, orders, and admin.' },
+          { label: 'Security', value: 'bcrypt + JWT', desc: 'Every password hashed; sessions verified via httpOnly cookie on each request.' },
+          { label: 'Order Tracking', value: '4-stage timeline', desc: 'Placed → Processing → Shipped → Delivered, updated live by the admin.' }
+        ],
+        footerTags: ['Node.js', 'Express', 'SQLite', 'JWT Auth'],
+        links: [
+          { label: 'Visit Live Site ↗', url: 'https://kibo-atelier.onrender.com/' },
+          { label: 'View Code ↗', url: 'https://github.com/nissaamri/KIBO-Atelier', secondary: true }
+        ]
+      },
+      'aura-glass': {
+        categoryBadge: 'Full-Stack Web App',
+        title: 'Aura Glass — Screen Protector Shop',
+        objective: 'Build a second full-stack shop focused on the owner\'s side: sales analytics, top products, and low-stock alerts.',
+        steps: [
+          {
+            badge: 'Step 1',
+            title: 'Backend & Database',
+            desc: 'Designed a Node.js/Express API backed by a relational SQLite database, so products, carts, and orders are all real and persisted.',
+            tools: ['JavaScript', 'SQL']
+          },
+          {
+            badge: 'Step 2',
+            title: 'Real Authentication',
+            desc: 'Added bcrypt-hashed passwords and JWT sessions in an httpOnly cookie, with route-level authorization separating customer and admin access.',
+            tools: ['JavaScript']
+          },
+          {
+            badge: 'Step 3',
+            title: 'Storefront, Checkout & Tracking',
+            desc: 'Built the cart to be server-side and tied to the account, with a checkout flow, a "Your Orders" history view, and a live package-tracking timeline.',
+            tools: ['JavaScript', 'HTML/CSS']
+          },
+          {
+            badge: 'Step 4',
+            title: 'Admin Dashboard',
+            desc: 'Built a role-gated dashboard with revenue and top-product analytics, product management with image upload, low-stock alerts, and a customer directory.',
+            tools: ['JavaScript', 'SQL']
+          }
+        ],
+        metrics: [
+          { label: 'Database Design', value: '6 tables', desc: 'Relational SQLite schema covering users, products, carts, orders, and tracking.' },
+          { label: 'API Coverage', value: '28 endpoints', desc: 'REST API spanning auth, catalog, cart, orders, and admin.' },
+          { label: 'Security', value: 'bcrypt + JWT', desc: 'Every password hashed; sessions verified via httpOnly cookie on each request.' },
+          { label: 'Order Tracking', value: '4-stage timeline', desc: 'Placed → Processing → Shipped → Delivered, updated live by the admin.' }
+        ],
+        footerTags: ['Node.js', 'Express', 'SQLite', 'JWT Auth'],
+        links: [
+          { label: 'Visit Live Site ↗', url: 'https://aura-glass.onrender.com/' },
+          { label: 'View Code ↗', url: 'https://github.com/nissaamri/Aura-Glass', secondary: true }
+        ]
+      },
+      'sephora-dashboard': {
+        categoryBadge: 'Data Analytics Dashboard',
+        title: 'Sephora Dashboard',
+        objective: 'Answer three questions about Sephora\'s catalog: what products cost, how they\'re rated, and what sells best.',
+        steps: [
+          {
+            badge: 'Step 1',
+            title: 'Data Preparation',
+            desc: 'Cleaned and structured Sephora\'s public product catalog data (name, brand, price, rating, category, and more) so it was ready for reliable analysis.',
+            tools: ['Power BI']
+          },
+          {
+            badge: 'Step 2',
+            title: 'Brand & Catalog Overview',
+            desc: 'Built the first page around total products, average price, total brands, and total "loves," with a breakdown of top brands by catalog size and category share.',
+            tools: ['Power BI']
+          },
+          {
+            badge: 'Step 3',
+            title: 'Price & Rating Analysis',
+            desc: 'Built the second page to show how price relates to star rating, how products split into rating tiers, and how many products fall into Budget, Mid-Range, or Luxury pricing.',
+            tools: ['Power BI']
+          },
+          {
+            badge: 'Step 4',
+            title: 'Product Attributes & Leaderboard',
+            desc: 'Built the third page around a Top 15 most-loved products leaderboard, plus a breakdown of exclusive vs. standard retail products and online-only vs. in-store availability.',
+            tools: ['Power BI']
+          }
+        ],
+        metrics: [
+          { label: 'Catalog Size', value: '9,159 products', desc: 'Across 324 brands and 5 categories.' },
+          { label: 'Average Price', value: '$49.66', desc: 'Median price sits at $35.' },
+          { label: 'Total Engagement', value: '149M loves', desc: 'Total customer "loves" across the full catalog.' },
+          { label: 'Dashboard Pages', value: '3 pages', desc: 'Overview, Price & Rating Analysis, and Product Leaderboard.' }
+        ],
+        footerTags: ['Power BI', 'DAX'],
+        links: [
+          { label: 'View Code ↗', url: 'https://github.com/nissaamri/Sephora-Dashboard', secondary: true }
+        ]
+      },
+      'walmart-dashboard': {
+        categoryBadge: 'Data Analytics Dashboard',
+        title: 'Walmart Dashboard',
+        objective: 'Measure how much holidays, weather, and the economy really move Walmart\'s weekly sales.',
+        steps: [
+          {
+            badge: 'Step 1',
+            title: 'Data Preparation',
+            desc: 'Cleaned and structured weekly sales data (per store, per week) alongside holiday flags, temperature, fuel price, CPI, and unemployment, so it was ready for reliable analysis.',
+            tools: ['Power BI']
+          },
+          {
+            badge: 'Step 2',
+            title: 'Executive Sales Overview & Store Comparison',
+            desc: 'Built the first two pages around total revenue, average weekly sales, and year-over-year trends, plus a side-by-side comparison of all 45 stores by size and performance.',
+            tools: ['Power BI']
+          },
+          {
+            badge: 'Step 3',
+            title: 'Holiday & Seasonal Impact',
+            desc: 'Built a page measuring exactly how much sales rise during holiday weeks compared to normal weeks, and which holiday drives the biggest spike.',
+            tools: ['Power BI']
+          },
+          {
+            badge: 'Step 4',
+            title: 'Economics & Weather Analysis',
+            desc: 'Built two pages testing whether fuel price, inflation, unemployment, and weather conditions actually move weekly sales, with scatter plots showing the real relationship behind each factor.',
+            tools: ['Power BI']
+          }
+        ],
+        metrics: [
+          { label: 'Revenue Tracked', value: '$6.74B', desc: 'Across 45 stores and 143 weeks.' },
+          { label: 'Store Coverage', value: '45 stores', desc: 'Compared side by side on size and performance.' },
+          { label: 'Holiday Impact', value: '+7.84%', desc: 'Average sales increase during holiday weeks vs. normal weeks.' },
+          { label: 'Dashboard Pages', value: '5 pages', desc: 'Sales overview, store comparison, holidays, economics, and weather.' }
+        ],
+        footerTags: ['Power BI', 'DAX'],
+        links: [
+          { label: 'View Code ↗', url: 'https://github.com/nissaamri/Walmart-Dashboard', secondary: true }
+        ]
+      },
+      'enterprise-risk-monitoring': {
+        categoryBadge: 'Risk Analytics Dashboard',
+        title: 'Enterprise Risk Monitoring',
+        objective: 'Score and rank a public power company\'s biggest risks, estimate what they could cost, and show it all on one dashboard.',
+        steps: [
+          {
+            badge: 'Step 1',
+            title: 'Data Extraction & Cleaning',
+            desc: 'Extracted financial, governance, and sustainability data from 5 years (FY2021-FY2025) of TNB\'s Integrated Annual Reports and Sustainability Reports, and structured it into a relational database.',
+            tools: ['Python', 'SQL']
+          },
+          {
+            badge: 'Step 2',
+            title: 'Risk Scoring & Control Mapping',
+            desc: 'Identified 25 major disclosed risk categories, scored and ranked them by severity, and mapped real controls to each risk to estimate inherent vs. residual risk.',
+            tools: ['Python', 'SQL']
+          },
+          {
+            badge: 'Step 3',
+            title: 'Financial Exposure & Scenario Modeling',
+            desc: 'Modeled expected loss and worst-case financial exposure per risk, then ran Base, Stress, and Severe scenario analyses to see how the risk picture shifts under pressure.',
+            tools: ['Python']
+          },
+          {
+            badge: 'Step 4',
+            title: 'Dashboard & Reporting',
+            desc: 'Built a 5-page dashboard (Executive Overview, Risk Heatmap, Financial Exposure, Control Monitoring, Events & Scenarios) plus a management-style written report.',
+            tools: ['Power BI', 'HTML/CSS']
+          }
+        ],
+        metrics: [
+          { label: 'Risks Assessed', value: '25 risks', desc: 'Scored, ranked, and mapped to real controls.' },
+          { label: 'Years Analyzed', value: '5 years', desc: 'FY2021-FY2025, from TNB\'s own public disclosures.' },
+          { label: 'Expected Loss Modeled', value: '~RM 2.1B', desc: 'Summed expected loss across all 25 risks.' },
+          { label: 'Dashboard Pages', value: '5 pages', desc: 'Executive overview through events & scenarios.' }
+        ],
+        footerTags: ['Python', 'SQL', 'Power BI'],
+        links: [
+          { label: 'Visit Live Site ↗', url: 'https://enterprise-risk-monitoring-dashboard.netlify.app/' },
+          { label: 'View Code ↗', url: 'https://github.com/nissaamri/Enterprise-Risk-Monitoring', secondary: true }
+        ]
+      },
+      'customer-intelligence-platform': {
+        categoryBadge: 'Data & ML Pipeline',
+        title: 'Customer Intelligence Platform',
+        objective: 'Using synthetic retail data, find out which customers matter most, what they\'re worth, and who is about to leave.',
+        steps: [
+          {
+            badge: 'Step 1',
+            title: 'Data Pipeline (Bronze → Silver → Gold)',
+            desc: 'Built a PySpark pipeline that cleans raw retail data and builds it up into a single Customer 360 table, reaching a 100% data quality score at the Silver layer.',
+            tools: ['Python']
+          },
+          {
+            badge: 'Step 2',
+            title: 'Segmentation & Lifetime Value',
+            desc: 'Scored and grouped all 10,000 customers with RFM + K-Means segmentation, then predicted each customer\'s future profit and lifetime value.',
+            tools: ['Python', 'Machine Learning']
+          },
+          {
+            badge: 'Step 3',
+            title: 'Churn Prediction',
+            desc: 'Trained and compared three models (Logistic Regression, Random Forest, XGBoost) to predict churn, validating the best one against a held-out ground-truth set.',
+            tools: ['Python', 'Machine Learning']
+          },
+          {
+            badge: 'Step 4',
+            title: 'Decision Engine & Dashboard',
+            desc: 'Built a rules-based decision engine to turn predictions into recommended actions, then presented everything on a 5-page live dashboard.',
+            tools: ['Python', 'Power BI']
+          }
+        ],
+        metrics: [
+          { label: 'Customers Analyzed', value: '10,000', desc: '99,204 clean transactions, RM21.99M total sales.' },
+          { label: 'Churn Model Accuracy', value: 'ROC-AUC 0.79', desc: 'Random Forest, validated against hidden ground truth.' },
+          { label: 'Revenue at Risk', value: 'RM7.44M', desc: '1,221 high-value customers flagged high churn risk.' },
+          { label: 'Data Quality', value: '100%', desc: 'Every Silver-layer record passes all validation checks after cleaning.' }
+        ],
+        footerTags: ['Python', 'PySpark', 'scikit-learn', 'XGBoost'],
+        links: [
+          { label: 'Visit Live Site ↗', url: 'https://customer-intelligence-platform.netlify.app/' },
+          { label: 'View Code ↗', url: 'https://github.com/nissaamri/Customer-Intelligence-Platform', secondary: true }
+        ]
+      },
+      'parking-lot-system': {
+        categoryBadge: 'OOP Console App',
+        title: 'Central City Parking System',
+        objective: 'Practise object-oriented design with a parking system that checks vehicles in and out and charges the right fee.',
+        steps: [
+          {
+            badge: 'Step 1',
+            title: 'Vehicle Hierarchy',
+            desc: 'Designed an abstract Vehicle base class, with Car, Motorcycle, and Truck as concrete subclasses, each carrying its own hourly rate.',
+            tools: ['Java']
+          },
+          {
+            badge: 'Step 2',
+            title: 'Parking Spot Logic',
+            desc: 'Built a ParkingSpot class that checks whether a given vehicle actually fits, using a VehicleType enum to classify both vehicles and spots.',
+            tools: ['Java']
+          },
+          {
+            badge: 'Step 3',
+            title: 'Ticketing & Fee Calculation',
+            desc: 'Built a Ticket class that records entry/exit time and calculates the fee owed based on vehicle type and duration.',
+            tools: ['Java']
+          },
+          {
+            badge: 'Step 4',
+            title: 'System & Console Menu',
+            desc: 'Built a ParkingLot class to own all spots and active tickets and handle check-in/check-out, driven by a Main class console menu.',
+            tools: ['Java']
+          }
+        ],
+        metrics: [
+          { label: 'Core Types', value: '8 classes + 1 enum', desc: 'Vehicle, Car, Motorcycle, Truck, ParkingSpot, Ticket, ParkingLot, Main, plus the VehicleType enum.' },
+          { label: 'Vehicle Types', value: '3 types', desc: 'Car, Motorcycle, and Truck, each with a distinct hourly rate.' },
+          { label: 'OOP Principles', value: '4 applied', desc: 'Abstraction, inheritance, encapsulation, and polymorphism.' },
+          { label: 'Documentation', value: '3 UML diagrams', desc: 'Vehicle hierarchy, system composition, and a full combined class diagram.' }
+        ],
+        footerTags: ['Java', 'OOP'],
+        links: [
+          { label: 'View Code ↗', url: 'https://github.com/nissaamri/Parking-Lot-System', secondary: true }
+        ]
+      },
+      'financial-distress-early-warning': {
+        categoryBadge: 'ML Risk Model',
+        title: 'Financial Distress Early-Warning System',
+        objective: 'Predict, one year ahead, which companies are heading for financial trouble, and explain why.',
+        steps: [
+          {
+            badge: 'Step 1',
+            title: 'Data Validation & Ratio Engineering',
+            desc: 'Audited 50 companies\' financial statements for missing values and inconsistencies, then built 14 liquidity, profitability, leverage, and efficiency ratios per company-year.',
+            tools: ['Python']
+          },
+          {
+            badge: 'Step 2',
+            title: 'Model Training & Comparison',
+            desc: 'Trained and compared 4 models (Logistic Regression, Decision Tree, Random Forest, XGBoost) with 5-fold cross-validation, choosing the one with the best recall for catching real distress cases.',
+            tools: ['Python', 'Machine Learning']
+          },
+          {
+            badge: 'Step 3',
+            title: 'Explainability & Risk Scoring',
+            desc: 'Used SHAP to explain exactly which ratios drive each company\'s risk prediction, then converted the model\'s probability into a 0-100 Risk Score with 5 risk categories.',
+            tools: ['Python', 'Machine Learning']
+          },
+          {
+            badge: 'Step 4',
+            title: 'Dashboard & Recommendations',
+            desc: 'Built a 6-page Streamlit dashboard (plus a no-install HTML version) showing company risk, financial health trends, and rule-based recommendations tied to each company\'s real numbers.',
+            tools: ['Python', 'Streamlit']
+          }
+        ],
+        metrics: [
+          { label: 'Model Chosen', value: 'XGBoost', desc: 'ROC-AUC 0.911, Recall 76.7% on held-out test data.' },
+          { label: 'Companies Analyzed', value: '50 companies', desc: '2023-2025 financials, including Rivian, Peloton, BlackBerry.' },
+          { label: 'Dashboard Pages', value: '6 pages', desc: 'Overview, Company Risk, Financial Health, Why Risky, Early-Warning, Industry.' },
+          { label: 'Explainability', value: 'SHAP', desc: 'Per-company breakdown of exactly which ratios drive its risk score.' }
+        ],
+        footerTags: ['Python', 'scikit-learn', 'XGBoost', 'SHAP'],
+        links: [
+          { label: 'View Code ↗', url: 'https://github.com/nissaamri/Financial-Distress-Early-Detection', secondary: true }
+        ]
+      },
+      'revenue-leakage-detection': {
+        categoryBadge: 'Data & ML Analysis',
+        title: 'Revenue Leakage & Profit Optimization',
+        objective: 'Find how much profit a store loses to discounts, and turn that into a simple fix.',
+        steps: [
+          {
+            badge: 'Step 1',
+            title: 'Expected Profit Modeling',
+            desc: 'Built a linear regression model to predict each order\'s expected profit, then measured the gap between expected and actual profit as the true "leakage."',
+            tools: ['Python', 'Machine Learning']
+          },
+          {
+            badge: 'Step 2',
+            title: 'Anomaly Detection',
+            desc: 'Used Isolation Forest to flag orders that behave unlike normal transactions, isolating genuine losses from ordinary discount-driven variance.',
+            tools: ['Python', 'Machine Learning']
+          },
+          {
+            badge: 'Step 3',
+            title: 'Customer Segmentation',
+            desc: 'Grouped customers with K-Means clustering into Healthy, Moderate, and Risky segments based on their discount and profit behavior.',
+            tools: ['Python', 'Machine Learning']
+          },
+          {
+            badge: 'Step 4',
+            title: 'Optimization & Dashboard',
+            desc: 'Turned the profit-by-discount pattern into a concrete discount-cap recommendation per category, then built a self-contained 4-page dashboard with real cross-filters.',
+            tools: ['Python']
+          }
+        ],
+        metrics: [
+          { label: 'Orders Analyzed', value: '9,994 orders', desc: 'From the public Sample Superstore dataset.' },
+          { label: 'Unprofitable Orders', value: '19%', desc: '1,871 of 9,994 orders lose money.' },
+          { label: 'Anomalies Flagged', value: '209 orders', desc: '-$104,728 in flagged genuine losses.' },
+          { label: 'Recommended Fix', value: '20% discount cap', desc: 'Would have saved $135,376 across 1,393 orders.' }
+        ],
+        footerTags: ['Python', 'scikit-learn', 'Regression', 'Clustering'],
+        links: [
+          { label: 'Visit Live Site ↗', url: 'https://revenue-leakage-detection.netlify.app/' },
+          { label: 'View Code ↗', url: 'https://github.com/nissaamri/Revenue-Leakage-Detection', secondary: true }
+        ]
+      },
+      'alpha-signals': {
+        categoryBadge: 'Quant Forecasting Pipeline',
+        title: 'Alpha Signals — Multi-Market Forecasting',
+        objective: 'Test whether price patterns can predict stock returns across 3 markets, using a realistic backtest that includes trading costs.',
+        steps: [
+          {
+            badge: 'Step 1',
+            title: 'Cross-Market Data Collection',
+            desc: 'Collected 10 years of daily price data for 30 large-cap tickers across 3 exchanges (NYSE, LSE, Bursa Malaysia), plus each market\'s own benchmark index.',
+            tools: ['Python']
+          },
+          {
+            badge: 'Step 2',
+            title: 'Feature Engineering',
+            desc: 'Engineered momentum, volatility, RSI, and rolling correlation/beta features against each stock\'s own market index, with the target set as the forward 5-day return.',
+            tools: ['Python']
+          },
+          {
+            badge: 'Step 3',
+            title: 'Model Training & Honest Evaluation',
+            desc: 'Trained a LightGBM model on a strict time-based split so it never trains on the future, then evaluated it using the Information Coefficient — the standard way quant researchers judge if a signal has real predictive power.',
+            tools: ['Python', 'Machine Learning']
+          },
+          {
+            badge: 'Step 4',
+            title: 'Realistic Backtesting',
+            desc: 'Backtested a long-short strategy that rebalances every 5 days and charges realistic transaction costs, reporting annualized return, volatility, Sharpe ratio, and max drawdown against a buy-and-hold benchmark.',
+            tools: ['Python']
+          }
+        ],
+        metrics: [
+          { label: 'Signal Strength', value: 'IC 0.03', desc: 'Rank IC slightly below zero: no reliable signal.' },
+          { label: 'Strategy Result', value: '-13.1% / year', desc: 'Long-short after costs. Sharpe -2.17, max drawdown -25%.' },
+          { label: 'Buy-and-Hold', value: '+11.2% / year', desc: 'Same test period (Mar 2023 – Dec 2024). Sharpe 1.54.' },
+          { label: 'Markets Covered', value: '3 exchanges', desc: '30 tickers on NYSE, LSE, and Bursa Malaysia, 10 years of data.' }
+        ],
+        footerTags: ['Python', 'LightGBM', 'pandas'],
+        links: [
+          { label: 'View Code ↗', url: 'https://github.com/nissaamri/Alpha-Signals', secondary: true }
+        ]
+      },
+      'ecoutp': {
+        categoryBadge: 'Final Year Project — Mobile App',
+        title: 'EcoUTP',
+        video: 'UuiXqfRcq3U',
+        objective: 'A campus donation app that recognises items with AI and estimates the CO₂ each donation saves. Built as my Final Year Project.',
+        steps: [
+          {
+            badge: 'Step 1',
+            title: 'Mobile App & Backend',
+            desc: 'Built a Flutter mobile app backed by Firebase (Firestore + Authentication) for accounts and data, with a separate FastAPI backend serving the machine learning models.',
+            tools: ['Flutter', 'Firebase']
+          },
+          {
+            badge: 'Step 2',
+            title: 'AI Item Detection',
+            desc: 'Integrated YOLOv8n plus a fashion detection model so the app can automatically recognize what item a student is donating.',
+            tools: ['Python', 'Machine Learning']
+          },
+          {
+            badge: 'Step 3',
+            title: 'CO2 Impact Prediction',
+            desc: 'Trained an XGBoost model to predict each donation\'s CO2 savings, reaching an R² of 0.9653 against a target of 0.85.',
+            tools: ['Python', 'Machine Learning']
+          },
+          {
+            badge: 'Step 4',
+            title: 'Community Learning & Gamification',
+            desc: 'Added a ResNet-18 based community learning system (86% cosine similarity) and an eco-points/tier system to encourage repeat donations.',
+            tools: ['Python', 'Machine Learning']
+          }
+        ],
+        metrics: [
+          { label: 'CO2 Model Accuracy', value: 'R² = 0.9653', desc: 'XGBoost, against a target of 0.85.' },
+          { label: 'Live Impact', value: '529.2 kg CO2 saved', desc: 'Measured during live deployment testing.' },
+          { label: 'Community Learning', value: '86% similarity', desc: 'ResNet-18 cosine similarity across donations.' },
+          { label: 'Gamification', value: 'Planet Hero tier', desc: '1,213 eco-points earned during testing.' }
+        ],
+        footerTags: ['Flutter', 'Firebase', 'FastAPI', 'XGBoost'],
+        links: [
+          { label: 'View Code ↗', url: 'https://github.com/nissaamri/EcoUTP', secondary: true }
+        ]
+      }
+    };
+
+    // Tag colour mapping (keeps modal tags the same colour as card tags)
+    const TAG_CLASS = {
+      'Python': 'tool-python', 'pandas': 'tool-python', 'PySpark': 'tool-python', 'FastAPI': 'tool-python',
+      'Machine Learning': 'tool-ml', 'scikit-learn': 'tool-ml', 'XGBoost': 'tool-ml', 'LightGBM': 'tool-ml',
+      'SHAP': 'tool-ml', 'Regression': 'tool-ml', 'Clustering': 'tool-ml',
+      'Flutter': 'tool-flutter',
+      'Firebase': 'tool-firebase',
+      'SQL': 'tool-sql', 'SQLite': 'tool-sql',
+      'Power BI': 'tool-powerbi', 'DAX': 'tool-powerbi',
+      'Streamlit': 'tool-streamlit',
+      'HTML/CSS': 'tool-web',
+      'JavaScript': 'tool-js', 'Node.js': 'tool-js', 'Express': 'tool-js', 'JWT Auth': 'tool-js',
+      'Java': 'tool-java', 'OOP': 'tool-java'
+    };
+    const tagClass = t => TAG_CLASS[t] || 'tool-neutral';
+
+    // Optional thumbnails: add `thumb: 'images/xyz.png'` to a project below and it appears on its card
+    document.querySelectorAll('.project-card').forEach(card => {
+      const p = projectsData[card.dataset.id];
+      if (p && p.thumb) {
+        const img = document.createElement('img');
+        img.className = 'card-thumb';
+        img.src = p.thumb;
+        img.alt = `${p.title} preview`;
+        img.loading = 'lazy';
+        card.firstElementChild.prepend(img);
+      }
+    });
+
+    // Filter Logic
+    const categoryGroup = document.getElementById('category-group');
+    const toolsGroup = document.getElementById('tools-group');
+    const skillsGroup = document.getElementById('skills-group');
+    const clearBtn = document.getElementById('reset-all');
+    const countDisplay = document.getElementById('project-count');
+
+    let activeCategories = new Set();
+    let activeTools = new Set();
+    let activeSkills = new Set();
+
+    function runFilter() {
+      const cards = document.querySelectorAll('.project-card');
+      let count = 0;
+
+      cards.forEach(card => {
+        const catList = (card.getAttribute('data-category') || '').split(',').map(s => s.trim().toLowerCase());
+        const toolList = (card.getAttribute('data-tools') || '').split(',').map(s => s.trim());
+        const skillList = (card.getAttribute('data-skills') || '').split(',').map(s => s.trim());
+
+        const matchCat = activeCategories.size === 0 || Array.from(activeCategories).some(c => catList.includes(c.toLowerCase()));
+        const matchTool = activeTools.size === 0 || Array.from(activeTools).some(t => toolList.includes(t));
+        const matchSkill = activeSkills.size === 0 || Array.from(activeSkills).some(s => skillList.includes(s));
+
+        if (matchCat && matchTool && matchSkill) {
+          card.style.display = 'flex';
+          count++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      countDisplay.textContent = `${count} Project${count === 1 ? '' : 's'}`;
+      document.getElementById('filter-empty-note').style.display = count === 0 ? 'block' : 'none';
+    }
+
+    function setupMultiSelect(container, activeSet, attrName) {
+      const allBtn = container.querySelector(`[${attrName}="all"]`);
+      const itemBtns = container.querySelectorAll(`[${attrName}]:not([${attrName}="all"])`);
+
+      allBtn.addEventListener('click', () => {
+        activeSet.clear();
+        itemBtns.forEach(btn => btn.classList.remove('active'));
+        allBtn.classList.add('active');
+        runFilter();
+      });
+
+      itemBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const val = btn.getAttribute(attrName);
+          if (activeSet.has(val)) {
+            activeSet.delete(val);
+            btn.classList.remove('active');
+          } else {
+            activeSet.add(val);
+            btn.classList.add('active');
+          }
+          if (activeSet.size === 0) {
+            allBtn.classList.add('active');
+          } else {
+            allBtn.classList.remove('active');
+          }
+          runFilter();
+        });
+      });
+    }
+
+    // Hide any filter pill that no project uses, so no filter ever leads to an empty list on its own
+    (function hideUnusedFilters() {
+      const cards = Array.from(document.querySelectorAll('.project-card'));
+      const collect = attr => new Set(cards.flatMap(c => (c.getAttribute(attr) || '').split(',').map(v => v.trim().toLowerCase())));
+      const used = {
+        'data-filter': collect('data-category'),
+        'data-tool': collect('data-tools'),
+        'data-skill': collect('data-skills')
+      };
+      Object.entries(used).forEach(([attr, set]) => {
+        document.querySelectorAll(`[${attr}]:not([${attr}="all"])`).forEach(btn => {
+          if (!set.has(btn.getAttribute(attr).toLowerCase())) btn.style.display = 'none';
+        });
+      });
+    })();
+
+    setupMultiSelect(categoryGroup, activeCategories, 'data-filter');
+    setupMultiSelect(toolsGroup, activeTools, 'data-tool');
+    setupMultiSelect(skillsGroup, activeSkills, 'data-skill');
+
+    clearBtn.addEventListener('click', () => {
+      activeCategories.clear();
+      activeTools.clear();
+      activeSkills.clear();
+
+      [categoryGroup, toolsGroup, skillsGroup].forEach(group => {
+        const btns = group.querySelectorAll('.btn-pill');
+        btns.forEach(btn => btn.classList.remove('active'));
+        btns[0].classList.add('active');
+      });
+
+      runFilter();
+    });
+
+    // Modal Control
+    const modal = document.getElementById('project-modal');
+    const modalContent = document.getElementById('modal-dynamic-content');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+
+    let lastFocused = null;
+
+    function openProjectModal(id) {
+      const p = projectsData[id];
+      if (!p) return;
+      lastFocused = document.activeElement;
+
+      const stepsHtml = p.steps.map(s => `
+        <div class="timeline-card">
+          <div class="step-badge">${s.badge}</div>
+          <div class="step-content">
+            <h5>${s.title}</h5>
+            <p>${s.desc}</p>
+            <div class="step-tools">
+              ${s.tools.map(t => `<span class="pill-tag ${tagClass(t)}">${t}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      const metricsHtml = p.metrics.map(m => `
+        <div class="proof-item">
+          <div class="proof-label">${m.label}</div>
+          <div class="proof-value">${m.value}</div>
+          <div class="proof-desc">${m.desc}</div>
+        </div>
+      `).join('');
+
+      const footerTagsHtml = p.footerTags.map(t => `<span class="pill-tag ${tagClass(t)}">${t}</span>`).join('');
+
+      const linkList = p.links || (p.actionButton ? [p.actionButton] : []);
+      const githubIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>`;
+      const actionsHtml = linkList.map(l => `
+        <a href="${l.url}" target="_blank" rel="noopener noreferrer" class="modal-action-btn${l.secondary ? ' secondary' : ''}">
+          ${l.url.includes('github.com') ? githubIcon : ''}
+          ${l.label}
+        </a>
+      `).join('');
+
+      modalContent.innerHTML = `
+        <div class="modal-header-meta">
+          <span class="modal-category-badge">${p.categoryBadge}</span>
+        </div>
+
+        <h2 class="modal-title">${p.title}</h2>
+
+        ${p.screenshots && p.screenshots.length ? `<div class="modal-gallery">${p.screenshots.map((src, i) => `<a href="${src}" target="_blank" rel="noopener noreferrer"><img src="${src}" alt="${p.title} screenshot ${i + 1}" loading="lazy"></a>`).join('')}</div>` : ''}
+
+        ${p.video ? `<div class="modal-video-wrap"><iframe src="https://www.youtube.com/embed/${p.video}" title="${p.title} demo video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>` : ''}
+
+        <div class="modal-summary-box">
+          <p>
+            <strong>The Objective:</strong> ${p.objective}
+          </p>
+        </div>
+
+        <h4 class="modal-section-title"><span>✦</span> How It Was Built</h4>
+        <div class="process-timeline">
+          ${stepsHtml}
+        </div>
+
+        <h4 class="modal-section-title"><span>✦</span> Key Proof & Results</h4>
+        <div class="proof-grid">
+          ${metricsHtml}
+        </div>
+
+        <div class="modal-footer-box">
+          <div class="modal-footer-tags">
+            ${footerTagsHtml}
+          </div>
+
+          <div class="modal-footer-actions">
+            ${actionsHtml}
+          </div>
+        </div>
+      `;
+
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('modal-container').scrollTop = 0;
+      closeModalBtn.focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      modalContent.innerHTML = ''; // stops the EcoUTP video if it was playing
+      if (lastFocused) lastFocused.focus();
+    }
+
+    closeModalBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    // Highlight the nav link for the section in view
+    const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+    const sections = ['about', 'experience', 'projects', 'contact'].map(id => document.getElementById(id));
+    function updateActiveNav() {
+      const y = window.scrollY + window.innerHeight * 0.35;
+      let current = 'about';
+      sections.forEach(sec => { if (sec && sec.offsetTop <= y) current = sec.id; });
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) current = 'contact';
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    }
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
+
+    runFilter();
+  </script>
+</body>
+</html>
